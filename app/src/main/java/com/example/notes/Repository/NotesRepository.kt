@@ -1,6 +1,7 @@
 package com.example.notes.Repository
 
 import androidx.lifecycle.LiveData
+import androidx.room.Query
 import com.example.notes.Dao.NotesDao
 import com.example.notes.Entity.NotesEntity
 
@@ -21,6 +22,22 @@ class NotesRepository(private  val dao:NotesDao) {
 
     fun updateNotes(note:NotesEntity){
         dao.updateNotes(note)
+    }
+
+
+    fun getHighNotes() : LiveData<List<NotesEntity>>{
+        return dao.getHighNotes()
+    }
+
+
+
+    fun getMediumNotes() : LiveData<List<NotesEntity>>{
+        return dao.getMediumNotes()
+    }
+
+
+    fun getLowNotes() : LiveData<List<NotesEntity>>{
+        return dao.getLowNotes()
     }
 
 }
